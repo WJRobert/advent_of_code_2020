@@ -6,6 +6,7 @@ import java.util.List;
 
 public class DayOnePuzzleSolver {
 
+    private static final int SUM_CHECK_VALUE = 2020;
     private FileReader fileReader;
 
     public DayOnePuzzleSolver() {
@@ -19,7 +20,7 @@ public class DayOnePuzzleSolver {
             int inputOne = inputList.get(i);
             for (int j=1; j<size; j++) {
                 int inputTwo = inputList.get(j);
-                if (inputOne + inputTwo == 2020) {
+                if (inputOne + inputTwo == SUM_CHECK_VALUE) {
                     return inputOne*inputTwo;
                 }
             }
@@ -36,7 +37,7 @@ public class DayOnePuzzleSolver {
                 int inputTwo = inputList.get(j);
                 for (int k=j+1; k<size; k++) {
                     int inputThree = inputList.get(k);
-                    if (inputOne + inputTwo + inputThree == 2020) {
+                    if (inputOne + inputTwo + inputThree == SUM_CHECK_VALUE) {
                         return inputOne*inputTwo*inputThree;
                     }
                 }
