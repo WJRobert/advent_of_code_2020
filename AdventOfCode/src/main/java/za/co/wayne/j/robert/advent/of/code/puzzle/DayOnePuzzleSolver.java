@@ -26,4 +26,23 @@ public class DayOnePuzzleSolver {
         }
         return -1;
     }
+
+    public int solvePuzzleTwo(String inputFilePath) {
+        List<Integer> inputList = fileReader.readIntInput(inputFilePath);
+        int size = inputList.size();
+        for (int i=0; i<size-2; i++) {
+            int inputOne = inputList.get(i);
+            for (int j=i+1; j<size-1; j++) {
+                int inputTwo = inputList.get(j);
+                for (int k=j+1; k<size; k++) {
+                    int inputThree = inputList.get(k);
+                    if (inputOne + inputTwo + inputThree == 2020) {
+                        return inputOne*inputTwo*inputThree;
+                    }
+                }
+
+            }
+        }
+        return -1;
+    }
 }
