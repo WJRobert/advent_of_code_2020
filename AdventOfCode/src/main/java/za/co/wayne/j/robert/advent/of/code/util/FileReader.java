@@ -29,4 +29,18 @@ public class FileReader {
         }
         return fileLines;
     }
+
+    public List<String> readInput(String filePath) {
+        List<String> fileLines = new ArrayList<>();
+        try {
+            Path path = Paths.get(getClass().getClassLoader().getResource(filePath).toURI());
+            Stream<String> lines = Files.lines(path);
+            fileLines = lines
+                    .collect(Collectors.toList());
+            lines.close();
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+        return fileLines;
+    }
 }
