@@ -12,4 +12,11 @@ public class DayTwoPuzzleSolverTest {
 
         assertEquals(422, dayTwoPuzzleSolver.solvePuzzleOne("day_two/puzzle_input.txt"));
     }
+
+    @Test
+    public void testSolvePuzzleTwo() {
+        DayTwoPuzzleSolver dayTwoPuzzleSolver = new DayTwoPuzzleSolver();
+
+        assertEquals(451, dayTwoPuzzleSolver.solvePuzzleTwo("day_two/puzzle_input.txt"));
+    }
 }
