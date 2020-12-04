@@ -1,15 +1,15 @@
-package za.co.wayne.j.robert.advent.of.code.puzzle;
+package za.co.wayne.j.robert.advent.of.code.puzzle.day.one;
 
 import za.co.wayne.j.robert.advent.of.code.util.FileReader;
 
 import java.util.List;
 
-public class DayOnePuzzleSolver {
+public class PuzzleSolver {
 
     private static final int SUM_CHECK_VALUE = 2020;
     private FileReader fileReader;
 
-    public DayOnePuzzleSolver() {
+    public PuzzleSolver() {
         fileReader = new FileReader();
     }
 
