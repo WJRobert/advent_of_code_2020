@@ -1,7 +1,6 @@
 package za.co.wayne.j.robert.advent.of.code.puzzle.day.two;
 
 import org.junit.Test;
-import za.co.wayne.j.robert.advent.of.code.puzzle.day.two.PuzzleSolver;
 
 import static org.junit.Assert.assertEquals;
 
