@@ -1,14 +1,14 @@
-package za.co.wayne.j.robert.advent.of.code.puzzle;
+package za.co.wayne.j.robert.advent.of.code.puzzle.day.two;
 
 import za.co.wayne.j.robert.advent.of.code.util.FileReader;
 
 import java.util.List;
 
-public class DayTwoPuzzleSolver {
+public class PuzzleSolver {
 
     private FileReader fileReader;
 
-    public DayTwoPuzzleSolver() {
+    public PuzzleSolver() {
         fileReader = new FileReader();
     }
 
