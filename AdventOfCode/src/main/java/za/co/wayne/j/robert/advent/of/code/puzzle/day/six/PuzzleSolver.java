@@ -2,7 +2,9 @@ package za.co.wayne.j.robert.advent.of.code.puzzle.day.six;
 
 import za.co.wayne.j.robert.advent.of.code.util.FileReader;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class PuzzleSolver {
 
@@ -14,58 +16,53 @@ public class PuzzleSolver {
 
     public int solvePuzzleOne(String inputFilePath) {
         List<String> inputs = fileReader.readInput(inputFilePath);
-        Map<Character, Boolean> yesAnswerMap = new HashMap<>();
+        Set<Character> yesAnswerSet = new HashSet<>();
         int sumOfGroups = 0;
-        for (String input: inputs) {
+        for (String input : inputs) {
             if (input.isBlank()) {
-                sumOfGroups += yesAnswerMap.size();
-                yesAnswerMap = new HashMap<>();
+                sumOfGroups += yesAnswerSet.size();
+                yesAnswerSet = new HashSet<>();
             } else {
-                for (char yesAnswer: input.toCharArray()) {
-                    yesAnswerMap.put(yesAnswer, true);
+                for (char yesAnswer : input.toCharArray()) {
+                    yesAnswerSet.add(yesAnswer);
                 }
             }
         }
-        sumOfGroups += yesAnswerMap.size();
+        sumOfGroups += yesAnswerSet.size();
         return sumOfGroups;
     }
 
     public int solvePuzzleTwo(String inputFilePath) {
         List<String> inputs = fileReader.readInput(inputFilePath);
-        Map<Character, Boolean> yesAnswerMap = new HashMap<>();
+        Set<Character> yesAnswerSet = new HashSet<>();
         int sumOfGroups = 0;
         boolean isFirstPerson = true;
-        for (String input: inputs) {
+        for (String input : inputs) {
             if (input.isBlank()) {
-                sumOfGroups += yesAnswerMap.size();
-                yesAnswerMap = new HashMap<>();
+                sumOfGroups += yesAnswerSet.size();
+                yesAnswerSet = new HashSet<>();
                 isFirstPerson = true;
             } else {
                 if (isFirstPerson) {
-                    for (char yesAnswer: input.toCharArray()) {
-                            yesAnswerMap.put(yesAnswer, true);
+                    for (char yesAnswer : input.toCharArray()) {
+                        yesAnswerSet.add(yesAnswer);
                     }
                     isFirstPerson = false;
                 } else {
-                    Set<Character> keysToRemove = new HashSet<>();
-                    //Else if I just remove from the set given it actually removes it from the HashMap
-                    for (Character key: yesAnswerMap.keySet()) {
-                        keysToRemove.add(key);
-                    }
-
-                    for (char yesAnswer: input.toCharArray()) {
+                    Set<Character> keysToRemove = new HashSet<>(yesAnswerSet);
+                    for (char yesAnswer : input.toCharArray()) {
                         keysToRemove.remove(yesAnswer);
                     }
                     if (!keysToRemove.isEmpty()) {
                         for (Character key : keysToRemove) {
-                            yesAnswerMap.remove(key);
+                            yesAnswerSet.remove(key);
                         }
                     }
                 }
 
             }
         }
-        sumOfGroups += yesAnswerMap.size();
+        sumOfGroups += yesAnswerSet.size();
         return sumOfGroups;
     }
 }
