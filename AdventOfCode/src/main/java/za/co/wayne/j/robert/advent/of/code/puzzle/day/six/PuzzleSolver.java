@@ -19,7 +19,7 @@ public class PuzzleSolver {
         Set<Character> yesAnswerSet = new HashSet<>();
         int sumOfGroups = 0;
         for (String input : inputs) {
-            if (input.isBlank()) {
+            if (input.isEmpty()) {
                 sumOfGroups += yesAnswerSet.size();
                 yesAnswerSet = new HashSet<>();
             } else {
@@ -38,7 +38,7 @@ public class PuzzleSolver {
         int sumOfGroups = 0;
         boolean isFirstPerson = true;
         for (String input : inputs) {
-            if (input.isBlank()) {
+            if (input.isEmpty()) {
                 sumOfGroups += yesAnswerSet.size();
                 yesAnswerSet = new HashSet<>();
                 isFirstPerson = true;
