@@ -17,6 +17,6 @@ public class PuzzleSolverTest {
     public void testSolvePuzzleTwo() {
         PuzzleSolver puzzleSolver = new PuzzleSolver();
 
-        assertEquals(5635, puzzleSolver.solvePuzzleTwo("day_ten/puzzle_input.txt"));
+        assertEquals(1157018619904L, puzzleSolver.solvePuzzleTwo("day_ten/puzzle_input.txt"));
     }
 }
