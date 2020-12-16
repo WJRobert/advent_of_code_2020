@@ -50,20 +50,20 @@ public class PuzzleSolver {
         List<Integer> sortedKeys = new ArrayList<>(busPositions.keySet());
         Collections.sort(sortedKeys);
         boolean isValid = false;
-        long currentTime = 99999999999972L;
+//        long currentTime = 100000000000001L;
+        long currentTime = 0L;
         long firstBusId = busPositions.get(sortedKeys.get(0));
         while (!isValid) {
             currentTime += firstBusId;
+            boolean inValidKeyFound = false;
             for (Integer key: sortedKeys) {
                 long busId = busPositions.get(key);
-                if (busId == firstBusId) {
-                    currentBusPositions.put(key, currentTime);
-                } else {
-                    long multiplier = currentTime / busId;
-                    currentBusPositions.put(key, (multiplier + 1) * busId);
+                if ((currentTime + key) % busId != 0) {
+                    inValidKeyFound = true;
+                    break;
                 }
             }
-            isValid = isBusPositionsValid(currentBusPositions, sortedKeys);
+            isValid = !inValidKeyFound;
         }
         return currentTime;
     }
